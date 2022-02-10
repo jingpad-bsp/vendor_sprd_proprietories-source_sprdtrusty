@@ -1,0 +1,15 @@
+
+allow tee self:capability { dac_override sys_rawio setuid setgid };
+allow tee mmcblk_device:blk_file { open read write ioctl };
+allow tee mmcblk_device:chr_file { open read write ioctl };
+allow tee prod_file:dir {  add_name write read open search };
+allow tee prod_file:file {  create read write open  };
+allow tee ss_file:dir {  add_name write read open search };
+allow tee ss_file:file {  create read write open  };
+allow tee block_device:dir { open search read };
+allow tee teetz_device:chr_file {  ioctl open read write  };
+allow tee mmcblk_device:file {  entrypoint  };
+set_prop(tee, storageproxyd_default_prop)
+
+#add secure-storage ioctl SElinux for Androidq,0xb300-MMC_IOC_CMD/0xb301-MMC_IOC_MULTI_CMD
+allowxperm tee mmcblk_device:blk_file ioctl { 0xb300  0xb301};

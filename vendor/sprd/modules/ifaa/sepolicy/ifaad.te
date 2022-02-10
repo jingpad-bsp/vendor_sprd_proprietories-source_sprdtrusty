@@ -1,0 +1,17 @@
+type ifaad, domain;
+type ifaad_exec, exec_type, file_type;
+
+init_daemon_domain(ifaad)
+binder_use(ifaad)
+
+allow ifaad ifaad_service:service_manager { add find };
+allow untrusted_app ifaad_service:service_manager { find };
+allow untrusted_app ifaad:binder { call };
+allow ifaad ifaad:capability { dac_override };
+
+# For permissions checking
+binder_call(ifaad, system_server);
+allow ifaad permission_service:service_manager find;
+
+allow ifaad teetz_device:chr_file { open read write ioctl };
+

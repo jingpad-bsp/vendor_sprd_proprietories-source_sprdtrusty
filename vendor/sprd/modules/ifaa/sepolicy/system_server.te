@@ -1,0 +1,5 @@
+# SPRD added for ifaa
+binder_call(system_server, ifaad);
+allow system_server ifaad_service:service_manager { add find };
+binder_call(system_server, ifaa);
+allow system_server ifaa_service:service_manager { add find };

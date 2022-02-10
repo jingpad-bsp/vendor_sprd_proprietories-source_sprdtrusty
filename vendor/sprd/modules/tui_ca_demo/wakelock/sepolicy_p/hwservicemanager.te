@@ -1,0 +1,5 @@
+#add for tuiwllistener
+allow hwservicemanager tuiwllistener:binder { call transfer };
+allow hwservicemanager tuiwllistener:dir { search };
+allow hwservicemanager tuiwllistener:file { read open };
+allow hwservicemanager tuiwllistener:process { getattr };

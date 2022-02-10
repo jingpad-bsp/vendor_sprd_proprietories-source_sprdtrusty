@@ -1,0 +1,11 @@
+type hal_ifaa_default, domain;
+type hal_ifaa_default_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(hal_ifaa_default);
+set_prop(hal_ifaa_default_exec, system_prop);
+
+binder_call(hal_ifaa_default, system_server)
+allow hal_ifaa_default hal_ifaa_hwservice:hwservice_manager {find add};
+allow hal_ifaa_default hwservicemanager_prop:file {  read open getattr };
+allow hal_ifaa_default hwservicemanager:binder {  call transfer };
+allow hal_ifaa_default hidl_base_hwservice:hwservice_manager {  add };
+allow hal_ifaa_default teetz_device:chr_file { read write ioctl open };

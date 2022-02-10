@@ -1,0 +1,5 @@
+#add for TUI wake lock service
+service tuiwllistener /system/bin/tuiwakelock
+    class late_start
+    user system
+    group root

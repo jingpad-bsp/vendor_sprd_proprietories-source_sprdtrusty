@@ -1,0 +1,6 @@
+attribute hal_tuistate;
+expandattribute hal_tuistate true;
+attribute hal_tuistate_client;
+expandattribute hal_tuistate_client true;
+attribute hal_tuistate_server;
+expandattribute hal_tuistate_server true;

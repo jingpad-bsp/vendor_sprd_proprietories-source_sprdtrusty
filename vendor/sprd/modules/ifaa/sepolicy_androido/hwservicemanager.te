@@ -1,0 +1,5 @@
+#add for ifaa
+allow hwservicemanager hal_ifaa_default:binder { call };
+allow hwservicemanager hal_ifaa_default:dir { search };
+allow hwservicemanager hal_ifaa_default:file { read open };
+allow hwservicemanager hal_ifaa_default:process { getattr };

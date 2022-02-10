@@ -1,0 +1,3 @@
+# add for ifaa
+allow system_server hal_ifaa_hwservice:hwservice_manager { find };
+allow system_server hal_ifaa_default:binder { call };

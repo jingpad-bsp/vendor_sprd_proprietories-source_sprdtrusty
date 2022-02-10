@@ -1,0 +1,2 @@
+# allow HAL module to open/read/write/ioctl trusty-dev
+allow hal_face teetz_device:chr_file { open read write ioctl };

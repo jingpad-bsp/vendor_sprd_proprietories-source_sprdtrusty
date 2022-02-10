@@ -1,0 +1,5 @@
+#tui wakelock listener
+/system/bin/tuiwakelock u:object_r:tuiwllistener_exec:s0
+
+#tuistate hidl service
+/vendor/bin/hw/vendor\.sprd\.hardware\.tuistate@1\.0-service  u:object_r:hal_tuistate_default_exec:s0

@@ -1,0 +1,16 @@
+# for keystore
+/dev/trusty-ipc-dev0			u:object_r:teetz_device:s0
+/dev/rpmb0				u:object_r:mmcblk_device:s0
+/dev/block/mmcblk0rpmb			u:object_r:mmcblk_device:s0
+/dev/block/mmcblk0p27			u:object_r:mmcblk_device:s0
+/dev/block/mmcblk0p5			u:object_r:mmcblk_device:s0
+/dev/block/mmcblk0p1			u:object_r:mmcblk_device:s0
+/(vendor|system/vendor)/bin/sprdstorageproxyd	u:object_r:tee_exec:s0
+/data/vendor/sprd_ss(/.*)?				u:object_r:ss_file:s0
+/productinfo/sprd_ss(/.*)?				u:object_r:ss_file:s0
+# for rpmb server
+/dev/socket/rpmbserver u:object_r:rpmb_socket:s0
+/(vendor|system/vendor)/bin/rpmbserver u:object_r:tee_exec:s0
+
+#for tsupplicant
+/(vendor|system/vendor)/bin/tsupplicant    u:object_r:tee_exec:s0

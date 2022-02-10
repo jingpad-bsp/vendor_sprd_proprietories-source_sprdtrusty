@@ -1,0 +1,2 @@
+# for ifaa
+/system/bin/ifaad    u:object_r:ifaad_exec:s0

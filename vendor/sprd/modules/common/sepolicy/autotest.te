@@ -1,0 +1,2 @@
+allow autotest teetz_device:chr_file {open ioctl read write};
+allow autotest fpsensor_fp_device:chr_file {open read write ioctl};

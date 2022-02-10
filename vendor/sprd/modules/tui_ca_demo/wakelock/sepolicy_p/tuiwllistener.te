@@ -1,0 +1,16 @@
+type tuiwllistener, domain;
+type tuiwllistener_exec, exec_type, file_type;
+typeattribute tuiwllistener coredomain;
+init_daemon_domain(tuiwllistener);
+
+binder_use(tuiwllistener)
+binder_call(tuiwllistener, system_server);
+
+#
+allow tuiwllistener hwservicemanager_prop:file { open read getattr };
+allow tuiwllistener hwservicemanager:binder {call};
+#
+allow tuiwllistener hal_tuistate_hwservice:hwservice_manager { find };
+allow tuiwllistener hal_tuistate_default:binder { call transfer };
+#
+allow tuiwllistener power_service:service_manager { find };

@@ -1,0 +1,3 @@
+# add for tuiwllistener
+allow system_server tuiwllistener:hwservice_manager { find };
+allow system_server tuiwllistener:binder { call };

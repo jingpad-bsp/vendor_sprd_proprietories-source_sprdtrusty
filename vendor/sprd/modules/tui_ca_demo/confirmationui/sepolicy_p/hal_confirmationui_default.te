@@ -1,0 +1,13 @@
+allow hal_confirmationui sysfs:file { open read };
+allow hal_confirmationui keystore:binder { call };
+allow hal_confirmationui_default teetz_device:chr_file { open read write ioctl };
+
+allow hal_confirmationui_default hal_confirmationui_default:capability {sys_resource};
+
+#for accessing secure display and secure tp
+allow hal_confirmationui_default sysfs:file { write };
+allow hal_confirmationui_default sysfs_lcd:file { open write };
+
+#for tuistatelistener service
+allow hal_confirmationui_default hal_tuistate_hwservice:hwservice_manager { find };
+allow hal_confirmationui_default hal_tuistate_default:binder { call };

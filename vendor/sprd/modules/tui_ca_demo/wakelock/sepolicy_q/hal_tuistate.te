@@ -1,0 +1,8 @@
+# HwBinder IPC from client to server
+binder_call(hal_tuistate_client, hal_tuistate_server)
+binder_call(hal_tuistate_server, hal_tuistate_client)
+
+#
+add_hwservice(hal_tuistate_server, hal_tuistate_hwservice)
+#
+allow hal_tuistate_client hal_tuistate_hwservice:hwservice_manager find;

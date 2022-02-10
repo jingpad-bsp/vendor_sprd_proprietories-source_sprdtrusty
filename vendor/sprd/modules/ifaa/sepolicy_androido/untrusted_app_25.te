@@ -1,0 +1,2 @@
+#add for ifaa
+allow untrusted_app_25 ifaa_service:service_manager { find };

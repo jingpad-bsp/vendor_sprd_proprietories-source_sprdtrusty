@@ -1,0 +1,15 @@
+type ifaa, domain;
+type ifaa_exec, exec_type, file_type;
+
+init_daemon_domain(ifaa)
+binder_use(ifaa)
+
+allow ifaa ifaa_service:service_manager { add find };
+allow untrusted_app ifaa_service:service_manager { find };
+allow untrusted_app ifaa:binder { call };
+allow ifaa ifaa:capability { dac_override };
+
+# For permissions checking
+binder_call(ifaa, system_server);
+allow ifaa permission_service:service_manager find;
+

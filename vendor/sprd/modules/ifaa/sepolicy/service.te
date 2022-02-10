@@ -1,0 +1,3 @@
+# Sprd added for ifaa
+type ifaa_service,              service_manager_type;
+type ifaad_service,             service_manager_type;

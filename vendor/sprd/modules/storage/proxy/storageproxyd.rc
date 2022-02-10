@@ -1,0 +1,25 @@
+#start storageproxyd must restorecon /data,
+#not start storageproxyd on cali mode (not trigger post-fs-data)
+on post-fs-data
+    setprop vendor.sprd.strageproxyd.ready 1
+
+# property is ok means real data partition mounted
+on property:vold.realdata.mount=ok && property:vendor.sprd.strageproxyd.ready=1
+    setprop vendor.sprd.storageproxyd.enabled 1
+
+#on cali mode set vendor.sprd.storageproxyd.enabled=1 in production tools
+on property:vendor.sprd.storageproxyd.enabled=1
+    mkdir /data/ss 0770 system system
+    start vendor.rpmbproxy
+    start vendor.nsproxy
+
+#service name must be < 16
+service vendor.rpmbproxy /system/bin/sprdstorageproxyd -f rpmb -d /dev/trusty-ipc-dev0 -p /data/ss -r /dev/block/mmcblk0rpmb
+    class core
+    group system
+    seclabel u:r:tee:s0
+
+
+service vendor.nsproxy /system/bin/sprdstorageproxyd -f ns -d /dev/trusty-ipc-dev0 -p /data/ss -r /dev/block/mmcblk0rpmb
+    group system
+    seclabel u:r:tee:s0
